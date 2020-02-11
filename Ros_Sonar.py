@@ -36,6 +36,7 @@ time.sleep(0.5)
 print ('-----------------------------------------------------------------sonar start')
 try :
     while True :
+        #print('running')
         gpio.output(trig, False)
         time.sleep(0.1)
         gpio.output(trig, True)
@@ -43,8 +44,10 @@ try :
         gpio.output(trig, False)
         while gpio.input(echo) == 0 :
             pulse_start = time.time()
+            #print('no')
         while gpio.input(echo) == 1 :
             pulse_end = time.time()
+            #print('yes')
         pulse_duration = pulse_end - pulse_start
         distance = pulse_duration * 17000
         if pulse_duration >=0.01746:
